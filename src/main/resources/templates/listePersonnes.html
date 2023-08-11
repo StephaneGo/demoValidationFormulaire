@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Page d'accueil</title>
+<style>
+  .theader { text-align: center; font-weight:bold; font-size: larger;}
+</style>
+</head>
+<body>
+
+<h1>Liste des personnes :</h1>
+	<table>
+		<tr class="theader">
+			<td>Nom</td>
+			<td>Age</td>
+			<td>Email</td>
+			<td>Code postal</td>
+			<td>Metier</td></tr>
+		<tr th:each="pers: ${personnes}">
+			<td th:text="${pers.prenom}" />
+			<td th:text="${pers.age}" />
+			<td th:text="${pers.email}" />
+			<td th:text="${pers.codePostal}" />
+	        <td th:text="${pers.metier.libelle}"></td>		 				
+		</tr>
+	</table>
+	<a th:href="@{/accueil}">Retour vers le formulaire</a>
+</body>
+</html>
